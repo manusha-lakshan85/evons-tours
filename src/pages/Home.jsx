@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 import hero1 from "../assets/pic8.jpg";
 import hero2 from "../assets/pic9.jpg";
@@ -28,6 +28,23 @@ import { FaShieldAlt,
 
 const images = [hero1, hero2, hero3];
 
+
+/*
+const reviews = [
+  {
+    name: "Kasun Perera",
+    text: "Amazing travel experience! Everything was perfectly organized.",
+  },
+  {
+    name: "Nimal Fernando",
+    text: "Best tour service in Sri Lanka. Highly recommended!",
+  },
+  {
+    name: "Amali Silva",
+    text: "Very friendly staff and excellent customer support.",
+  },
+];
+*/
 
 // DESTINATIONS
 const destinations = [
@@ -104,16 +121,31 @@ const features = [
 ];
 
 const Home = () => {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(0); // hero slider
+  //const [reviewIndex, setReviewIndex] = useState(0); // reviews
   const [showAbout, setShowAbout] = useState(false);
   const [showDest, setShowDest] = useState(false);
   const [showTours, setShowTours] = useState(false);
+
+  const navigate = useNavigate();
 
   const destRef = useRef(null);
   const tourRef = useRef(null);
 
 
 const [open, setOpen] = useState(false);
+
+/*
+// reviw
+useEffect(() => {
+  const interval = setInterval(() => {
+    setReviewIndex((prev) => (prev + 1) % reviews.length);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
+*/
+
 
 // ✅ ADD HERE (CORRECT PLACE)
   const [loaded, setLoaded] = useState(false);
@@ -230,7 +262,9 @@ Please give me more details.`;
             Discover breathtaking beaches, cultural heritage, wildlife adventures.
           </p>
 
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">
+          <button 
+          onClick={() => navigate("/tours")}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">
             View Tours
           </button>
         </div>
@@ -269,7 +303,9 @@ Please give me more details.`;
       </p>
 
       {/* BUTTON */}
-      <button className={`mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-700 delay-700
+      <button 
+      onClick={() => navigate("/about")}
+      className={`mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-700 delay-700
         ${showAbout ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
         Learn More
       </button>
@@ -425,6 +461,57 @@ Please give me more details.`;
 
   </div>
 </div>
+
+
+{/* ================= REVIEWS SECTION ================= */}
+{/*<div className="py-16 px-4 bg-gray-50">
+
+  <div className="text-center mb-10">
+    <p className="text-blue-600 uppercase text-sm font-semibold">
+      Reviews
+    </p>
+
+    <div className="w-20 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></div>
+
+    <h2 className="text-3xl font-bold mt-4 text-gray-800">
+      What Our Customers Say
+    </h2>
+  </div>
+
+  {/* CARD */}
+  {/*<div className="max-w-xl mx-auto bg-white shadow-lg rounded-xl p-8 text-center">
+
+    <div className="text-yellow-400 text-xl mb-3">
+      ⭐⭐⭐⭐⭐
+    </div>
+
+    <p className="text-gray-600 text-lg italic">
+      "{reviews[reviewIndex].text}"
+    </p>
+
+    <h4 className="mt-5 font-semibold text-blue-600">
+      - {reviews[reviewIndex].name}
+    </h4>
+
+  </div>
+
+  {/* DOTS */}
+  {/*<div className="flex justify-center gap-2 mt-5">
+    {reviews.map((_, i) => (
+  <div
+    key={i}
+    onClick={() => setReviewIndex(i)}
+    className={`w-3 h-3 rounded-full cursor-pointer transition ${
+      i === reviewIndex ? "bg-blue-600" : "bg-gray-300"
+    }`}
+  />
+))}
+  </div>
+
+</div>
+
+
+
 
 {/* FLOATING CONTACT BUTTON */}
 <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50">

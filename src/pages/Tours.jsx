@@ -54,8 +54,22 @@ const tours = [
 ];
 
 const Tours = () => {
+
+   // ✅ WHATSAPP BOOKING FUNCTION
+  const handleBookNow = (tourTitle) => {
+    const phoneNumber = "94740381598"; // 👉 ඔයාගේ WhatsApp number
+
+    const message = `Hello! I want to book a tour package.
+
+Tour: ${tourTitle}
+Please give me more details.`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  };
   return (
-    <div className="w-full">
+    <div className="w-full bg-white">
 
       {/* HERO */}
       <div
@@ -87,31 +101,43 @@ const Tours = () => {
           {tours.map((tour) => (
             <div
               key={tour.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+              className="group bg-white rounded-xl shadow-md overflow-hidden
+                         transition-all duration-500
+                         hover:shadow-2xl hover:-translate-y-2"
             >
-              <img
-                src={tour.image}
-                className="h-56 w-full object-cover group-hover:scale-110 transition"
-                alt={tour.title}
-              />
 
+              {/* IMAGE CONTAINER */}
+              <div className="overflow-hidden">
+                <img
+                  src={tour.image}
+                  alt={tour.title}
+                  className="h-56 w-full object-cover
+                             transition-transform duration-700
+                             group-hover:scale-110"
+                />
+              </div>
+
+              {/* CONTENT */}
               <div className="p-5">
                 <h3 className="text-xl text-gray-700 font-bold">
                   {tour.title}
                 </h3>
 
                 <p className="text-sm text-blue-600 font-semibold mt-1">
-                  {tour.duration} 
+                  {tour.duration}
                 </p>
 
-                 <p className="text-gray-600 text-sm mt-2">
+                <p className="text-gray-600 text-sm mt-2">
                   {tour.desc}
                 </p>
 
-                <button className="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white py-2 rounded-lg transition">
-                  Book Now
+               <button
+                onClick={() => handleBookNow(tour.title)}
+                className="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white py-2 rounded-lg transition">
+                Book Now
                 </button>
               </div>
+
             </div>
           ))}
 

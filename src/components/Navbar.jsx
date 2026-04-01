@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logoL.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const linkClass = ({ isActive }) =>
     isActive
@@ -30,9 +33,12 @@ export default function Navbar() {
         </ul>
 
         {/* BUTTON */}
-        <button className="hidden md:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">
-          Book Now
-        </button>
+       <button
+      onClick={() => navigate("/tours")}
+      className="hidden md:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition"
+      >
+      Book Now
+      </button>
 
         {/* MOBILE BUTTON */}
         <button
