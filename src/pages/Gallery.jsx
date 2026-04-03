@@ -9,7 +9,7 @@ import img6 from "../assets/pic11.jpg";
 import img7 from "../assets/pic12.jpg";
 import img8 from "../assets/pic 7.jpg";
 
-import GalleryHero from "../assets/pic3.jpg";
+import GalleryHero from "../assets/pic2.jpg";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 

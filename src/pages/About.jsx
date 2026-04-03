@@ -25,19 +25,14 @@ const About = () => {
   {/* OVERLAY */}
   <div className="absolute inset-0 bg-black/60"></div>
 
-  {/* TEXT */}
- <div className="text-center z-10">
-  
-  <h1 className="text-white text-4xl md:text-6xl font-bold">
-    About Us
-  </h1>
-
-  {/* BREADCRUMB */}
-  <p className="text-gray-300 mt-3 text-sm md:text-base font-bold">
-    Home <span className="mx-2">/</span> About Us
-  </p>
-
-</div>
+ <div className="relative text-center text-white px-4">
+          <h1 className="text-4xl md:text-5xl font-bold">
+            About Us
+          </h1>
+          <p className="mt-4 text-sm md:text-lg text-gray-200">
+            Explore the best destinations in Sri Lanka with us
+          </p>
+        </div>
 </div>
 
       {/* CONTENT SECTION */}

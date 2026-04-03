@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import hero1 from "../assets/pic8.jpg";
 import hero2 from "../assets/pic9.jpg";
 import hero3 from "../assets/pic2.jpg";
-import aboutImg from "../assets/beach_couple.jpeg";
-
+import aboutImg from "../assets/pic16.jpg";
+import bgImage from "../assets/pic12.jpg";
+import bgImage1 from "../assets/pic5.jpg";
 
 
 
@@ -22,7 +23,7 @@ import { FaShieldAlt,
   FaBus,
   FaMapMarkedAlt,
   FaUsers,FaWhatsapp, FaInstagram,FaPhoneAlt,
-  FaFacebookF,FaMapMarkerAlt,
+  FaFacebookF,FaMapMarkerAlt,FaArrowRight,
   FaHeart } from "react-icons/fa";
   
 
@@ -247,18 +248,18 @@ Please give me more details.`;
   />
 ))}
 
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
 
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
-          <p className="text-gray-200 font-bold uppercase tracking-widest text-sm mb-4">
+          <p className="text-white font-bold uppercase tracking-widest text-base md:text-2xl mb-4">
             Welcome to Evon's Tours
           </p>
 
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
+          <h1 className="text-white text-5xl md:text-8xl font-extrabold tracking-wide font-bold mb-4">
             Explore Sri Lanka
           </h1>
 
-          <p className="text-gray-200 max-w-2xl mb-8">
+          <p className="text-white text-base md:text-xl mb-8">
             Discover breathtaking beaches, cultural heritage, wildlife adventures.
           </p>
 
@@ -271,8 +272,9 @@ Please give me more details.`;
       </div>
 
       {/* ================= ABOUT SECTION ================= */}
-<div className="py-20 px-4 bg-white">
-
+    
+<div className="py-10 px-4 bg-gray-50">
+  <div className="relative z-10 max-w-6xl mx-auto backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
     {/* LEFT CONTENT */}
@@ -296,7 +298,7 @@ Please give me more details.`;
       </h2>
 
       {/* TEXT */}
-      <p className={`text-gray-600 text-sm md:text-lg mt-4 transition-all duration-700 delay-500
+      <p className={`text-gray-600 text-justify text-sm md:text-lg mt-4 transition-all duration-700 delay-500
         ${showAbout ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
         We provide unforgettable travel experiences across Sri Lanka with comfortable vehicles,
         experienced drivers, and customized tour packages designed to match your needs and budget.
@@ -307,7 +309,11 @@ Please give me more details.`;
       onClick={() => navigate("/about")}
       className={`mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-700 delay-700
         ${showAbout ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-        Learn More
+       <span>Learn More</span>
+
+  <span className="transform group-hover:translate-x-1  ml-3 font-bold transition">
+    →
+  </span>
       </button>
 
     </div>
@@ -323,12 +329,20 @@ Please give me more details.`;
       />
 
     </div>
+    </div>
 
   </div>
 </div>
 
-      {/* DESTINATIONS */}
-      <div ref={destRef} className="py-12 px-4 bg-blue-200">
+      {/* ================= DESTINATIONS ================= */}
+      <div
+  ref={destRef}
+  className="py-12 px-4 bg-cover bg-center relative"
+  style={{ backgroundImage: `url(${bgImage})` }}
+>
+  
+   {/* GLASS EFFECT CONTAINER */}
+  <div className="relative z-10 max-w-6xl mx-auto backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
         <div className="text-center mb-6">
           <p className="text-blue-600 uppercase text-sm font-semibold">
             Destinations
@@ -359,14 +373,16 @@ Please give me more details.`;
               </h3>
             </div>
           ))}
+          </div>
         </div>
       </div>
 
-      {/* TOUR PACKAGES (NEW FIXED SECTION) */}
-      <div ref={tourRef} className="py-16 px-4 bg-white">
+       {/* ================= TOUR PACKAGES ================= */}
+      <div ref={tourRef} className="py-14 px-4 bg-white">
+          <div className="relative z-10 max-w-6xl mx-auto backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
 
         <div className="text-center mb-10">
-          <p className="text-blue-500 uppercase text-sm font-semibold">
+          <p className="text-blue-600 uppercase text-sm font-semibold">
             Tour Packages
           </p>
           <div className="w-20 h-1 bg-blue-600 mx-auto mt-3"></div>
@@ -413,17 +429,49 @@ Please give me more details.`;
           ))}
 
         </div>
+
+         {/* 🔥 DESCRIPTION BELOW CARDS */}
+      <div className="mt-10 text-center max-w-4xl mx-auto">
+        <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+          These tour packages are carefully designed to give you the best experience
+          of Sri Lanka’s beauty, culture, and adventure. Each package includes
+          handpicked destinations, comfortable travel arrangements, and flexible
+          options to match your travel style. If these don’t fully match your dream
+          trip, we also offer fully customizable tour plans made just for you.
+        </p>
+         {/* BUTTON */}
+      <div className="text-center mt-8">
+        <button
+          onClick={() => navigate("/tours")}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition"
+        >
+          <span>View All Packages</span>
+
+  <span className="transform group-hover:translate-x-1  ml-3 font-bold transition">
+    →
+  </span>
+         
+        </button>
+        </div>
+      </div>
+      </div>
       </div>
 
 
-     {/* WHY CHOOSE US SECTION) */}
-    <div className="py-12 px-4 bg-blue-200">
-
+      {/* ================= WHY CHOOSE US SECTION ================= */}
+    <div
+  className="py-12 px-4 bg-cover bg-center relative"
+  style={{ backgroundImage: `url(${bgImage1})` }}
+>
+  
+  {/* GLASS EFFECT CONTAINER */}
+  <div className="relative z-10 max-w-6xl mx-auto backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
   {/* TITLE */}
   <div className="text-center mb-12">
     <p className="text-blue-600 uppercase tracking-widest font-semibold text-sm">
       Why Choose Us
     </p>
+
 
     <div className="w-20 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></div>
 
@@ -458,7 +506,7 @@ Please give me more details.`;
 
       </div>
     ))}
-
+</div>
   </div>
 </div>
 
@@ -513,7 +561,7 @@ Please give me more details.`;
 
 
 
-{/* FLOATING CONTACT BUTTON */}
+{/* ================= FLOATING CONTACT BUTTON ================= */}
 <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50">
 
   {/* OPTIONS */}

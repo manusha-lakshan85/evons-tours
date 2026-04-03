@@ -12,15 +12,16 @@ export default function Navbar() {
     isActive
       ? "text-blue-600 font-semibold"
       : "text-gray-700 hover:text-blue-500";
+      
 
   return (
     <nav className="bg-white shadow-md px-6 py-3">
       <div className="flex justify-between items-center">
 
         {/* LOGO */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <img src={logo} className="h-10 w-10" />
-          <h1 className="text-blue-500 tracking-normal font-bold">Evon’s Tours</h1>
+          <h1 className="text-blue-500 text-lg tracking-normal font-bold">Evon’s Tours</h1>
         </div>
 
         {/* DESKTOP MENU */}
